@@ -5,7 +5,7 @@ running = True
 
 WIN_W, WIN_H = 800, 600
 
-tile = 32      # 타일 크기
+tile = 62    # 타일 크기
 
 # 타일 노가다 붙이기
 tile_map = [
@@ -32,7 +32,7 @@ def draw_map():
         for x in range(MAP_W):
             tile_num = tile_map[y][x]
             if tile_num in tile_images:
-                tile_images[tile_num].draw(x * tile, (MAP_H +15- y) * tile) # 0행을 위에서 부터 그리려고 +15함
+                tile_images[tile_num].draw((x+0.5) * tile, (MAP_H + 6.2 - y) * tile, 62, 62) # 0행을 위에서 부터 그리려고 +15함
 
 
 
