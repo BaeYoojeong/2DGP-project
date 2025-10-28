@@ -1,14 +1,21 @@
 from pico2d import *
 import tile
+import tree
+import bush
 
 def main():
     open_canvas(800, 600)
     tile.load_tile_images()
+    tree.load_tree_images()
+    bush.load_bush_images()
 
     running = True
     while running:
         clear_canvas()
         tile.draw_tile_map()
+        bush.draw_bush_map()
+        tree.draw_tree_map()
+
         update_canvas()
 
         # 이벤트 처리 (ESC로 종료)
