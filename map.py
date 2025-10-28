@@ -2,7 +2,6 @@ from pico2d import *
 
 running = True
 
-
 WIN_W, WIN_H = 960, 640
 
 tile = 64    # 타일 크기
@@ -84,9 +83,6 @@ def draw_map():
             if tree_num in tree_images:
                 tree_images[tree_num].draw((x* tree)+1, ((MAP_H - y)+1) * tree, tree, tree+ 32)
 
-
-
-
 # 키 입력 처리
 def handle_events():
     global running
@@ -97,6 +93,7 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
     return True
+
 
 while running:
     clear_canvas()
