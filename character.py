@@ -1,5 +1,5 @@
 from pico2d import *
-
+import game_world
 # 속도
 PIXEL_PER_METER = (10.0 / 0.3)   # 10 pixel = 30 cm
 RUN_SPEED_KMPH = 10.0
@@ -12,8 +12,8 @@ TIME_PER_ACTION = 0.5
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 4
 
-
 class Arang:
+
     def __init__(self):
         self.image = load_image('arang.png')
         self.x, self.y = 400, 120
@@ -24,7 +24,6 @@ class Arang:
         self.updown = 0
         self.last_dir = 0
         self.last_updown = 0
-
     def handle_event(self, event):
         if event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:
@@ -80,7 +79,8 @@ class Arang:
                 self.image.clip_draw(0, 0, 16, 32, self.x, self.y, self.character_x, self.character_y)
             else:
                 self.image.clip_draw(0, 96, 16, 32, self.x, self.y, self.character_x, self.character_y)
-        draw_rectangle(*self.get_bb())
+        if game_world.hitbox:
+            draw_rectangle(*self.get_bb())
     def get_bb(self):
         return self.x - 20, self.y - 45, self.x + 20, self.y + 35
 

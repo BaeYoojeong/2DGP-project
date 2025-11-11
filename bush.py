@@ -1,3 +1,4 @@
+import game_world
 from pico2d import *
 
 bush_size = 32 * 1.7
@@ -29,7 +30,8 @@ class Bush:
 
     def draw(self):
         self.image.draw(self.x, self.y, bush_size, bush_size)
-        draw_rectangle(*self.get_bb())
+        if game_world.hitbox:
+            draw_rectangle(*self.get_bb())
     def get_bb(self):
         return self.x - 30, self.y - 30, self.x + 30, self.y + 30
 

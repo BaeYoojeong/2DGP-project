@@ -33,6 +33,9 @@ def main():
                 running = False
             elif e.type == SDL_KEYDOWN and e.key == SDLK_ESCAPE:
                 running = False
+            elif e.type == SDL_KEYDOWN and e.key == SDLK_h:
+                game_world.hitbox_draw()
+
             else:
                 character.handle_event(e)
         game_world.handle_collisions()
