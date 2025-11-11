@@ -80,3 +80,19 @@ class Arang:
                 self.image.clip_draw(0, 0, 16, 32, self.x, self.y, self.character_x, self.character_y)
             else:
                 self.image.clip_draw(0, 96, 16, 32, self.x, self.y, self.character_x, self.character_y)
+        draw_rectangle(*self.get_bb())
+    def get_bb(self):
+        return self.x - 20, self.y - 45, self.x + 20, self.y + 35
+
+    def handle_collision(self, group, other):
+        if group == 'arang:bush':
+            # 충돌 처리 - 부딪히면 반대쪽으로 이동되게함
+            print("Arang : Bush")
+            if self.dir > 0:
+                self.x -= 10
+            elif self.dir < 0:
+                self.x += 10
+            if self.updown > 0:
+                self.y -= 10
+            elif self.updown < 0:
+                self.y += 10

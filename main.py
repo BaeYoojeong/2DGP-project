@@ -1,3 +1,4 @@
+import game_world
 from pico2d import *
 import time
 import tile
@@ -12,8 +13,11 @@ def main():
     tile.load_tile_images()
     tree.load_tree_images()
     bush.load_bush_images()
-
+    bush.create_bushes()
     character = Arang()
+
+    for b in bush.bush_list:
+        game_world.add_collision_pair('arang:bush', character, b)
 
     running = True
     current_time = time.time()
@@ -31,7 +35,7 @@ def main():
                 running = False
             else:
                 character.handle_event(e)
-
+        game_world.handle_collisions()
         character.update(frame_time)
 
         clear_canvas()
