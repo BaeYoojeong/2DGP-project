@@ -34,6 +34,9 @@ class Arang:
                 self.updown += 1
             elif event.key == SDLK_DOWN:
                 self.updown -= 1
+            elif event.key == SDLK_m:
+                self.x=400
+                self.y=300
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
                 self.dir -= 1
