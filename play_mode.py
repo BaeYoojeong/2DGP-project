@@ -12,7 +12,6 @@ character = None
 
 def init():
     global character
-    open_canvas(800, 600)
 
     tile.load_tile_images()
     tree.load_tree_images()
