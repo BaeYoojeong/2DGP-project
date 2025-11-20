@@ -28,7 +28,8 @@ def load_tile_images():
     global tile_images
     tile_images = {
         0: load_image('a_grass.png'),
-        1: load_image('a_grass_rock.png')
+        1: load_image('a_grass_rock.png'),
+        2: load_image('brown.png')
     }
 
 def draw_tile_map():
@@ -37,3 +38,8 @@ def draw_tile_map():
             tile_num = tile_map[y][x]
             if tile_num in tile_images:
                 tile_images[tile_num].draw((x * tile)+20, (((MAP_H - y) * tile)-40), tile, tile)
+
+# 타일 변경 함수 (기존 바닥->밭)
+def change_tile(tx, ty):
+    if 0 <= tx < MAP_W and 0 <= ty < MAP_H:
+        tile_map[ty][tx] = 2
