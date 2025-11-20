@@ -45,7 +45,7 @@ def handle_events():
         elif e.type == SDL_KEYDOWN and e.key == SDLK_h:
             game_world.hitbox_draw()
 
-        # 마우스 입력 처리 =============
+        # 마우스 입력 처리 ==============
         elif e.type == SDL_MOUSEMOTION:
             mx, my = e.x, get_canvas_height() - e.y
 
@@ -58,9 +58,19 @@ def handle_events():
             else:
                 snap_x = None
                 snap_y = None
+        # 캐릭터 주변 1칸 이내 타일 변경
         elif e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
             if snap_x is not None and snap_y is not None:
-                tile.change_tile(snap_x, snap_y)
+
+                # 캐릭터의 현재 위치 → 타일 인덱스로 변환
+                char_tx = int(character.x // tile.tile)
+                char_ty = int((tile.MAP_H * tile.tile - character.y) // tile.tile)
+
+                # 캐릭터 주변 8칸(상하좌우/대각선)만 수정 허용
+                if abs(snap_x - char_tx) <= 1 and abs(snap_y - char_ty) <= 1:
+                    tile.change_tile(snap_x, snap_y)
+                else:
+                    print("캐릭터 주변 1칸 이내만 변경 가능합니다.")
 
         else:
             character.handle_event(e)
