@@ -1,5 +1,5 @@
 from pico2d import *
-
+import play_mode
 tile = 32 * 1.5   # 타일 크기
 
 # 타일 맵
@@ -149,6 +149,9 @@ def harvest(tx, ty):
 
     if seed_map[ty][tx] == 4:
         print("작물 수확!")
+
+        play_mode.inventory.add_item("farm_cabbage03.png")
+
         seed_map[ty][tx] = 0       # 작물 제거
         seed_timer[ty][tx] = 0     # 타이머 초기화
         water_map[ty][tx] = 0      # 물 상태 초기화

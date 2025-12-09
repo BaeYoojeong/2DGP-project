@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="inventory 클래스를 따로 만들었음. 이래야 인벤토리 안에 다른 아이템들을 다루기 편할것같음">
+    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="inventory 이미지에 맞춰서 슬롯 제작. 클릭해 선택가능하게 함">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_mode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/tile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765306988176</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="inventory 이미지에 맞춰서 슬롯 제작. 클릭해 선택가능하게 함">
+      <option name="closed" value="true" />
+      <created>1765308234471</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1765308234473</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -292,6 +300,7 @@
     <MESSAGE value="다 자란 식물을 4번- 손 키를 눌러서 수확하는 기능을 넣음" />
     <MESSAGE value="i 키를 누르면 인벤토리 이미지를 띄움" />
     <MESSAGE value="inventory 클래스를 따로 만들었음. 이래야 인벤토리 안에 다른 아이템들을 다루기 편할것같음" />
-    <option name="LAST_COMMIT_MESSAGE" value="inventory 클래스를 따로 만들었음. 이래야 인벤토리 안에 다른 아이템들을 다루기 편할것같음" />
+    <MESSAGE value="inventory 이미지에 맞춰서 슬롯 제작. 클릭해 선택가능하게 함" />
+    <option name="LAST_COMMIT_MESSAGE" value="inventory 이미지에 맞춰서 슬롯 제작. 클릭해 선택가능하게 함" />
   </component>
 </project>

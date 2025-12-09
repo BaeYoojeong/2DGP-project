@@ -18,10 +18,17 @@ class Inventory:
 
         self.selected_slot = None
 
+        self.item_images = {}
+        self.font = load_font('Hakgyoansim_BoardmarkerR.ttf', 16)
 
     def toggle(self):
         self.is_open = not self.is_open
         print("인벤토리:", "열림" if self.is_open else "닫힘")
+
+    def get_item_image(self, item_name):
+        if item_name not in self.item_images:
+            self.item_images[item_name] = load_image(item_name)
+        return self.item_images[item_name]
 
     def draw(self):
         if not self.is_open:
@@ -47,6 +54,16 @@ class Inventory:
 
                 # 슬롯 박스
                 draw_rectangle(sx, sy, sx + self.slot_size, sy + self.slot_size)
+
+                slot = self.slots[r][c]
+                if slot:
+                    # 아이템 이미지 그리기
+                    item_img = self.get_item_image(slot["item"])
+                    item_img.draw(sx + self.slot_size // 2,
+                                  sy + self.slot_size // 2,
+                                  70, 70)
+                    # 수량 표시
+                    self.font.draw(sx + 5, sy + 5, str(slot["count"]), (0, 0, 0))
 
                 # 선택 표시
                 if self.selected_slot == (r, c):
@@ -80,3 +97,23 @@ class Inventory:
     def update(self, dt):
         # 인벤토리가 열려있을때 뒤에 게임화면 멈춤
         return self.is_open
+
+    def add_item(self, item_name):
+        # 동일 아이템 -> count 증가
+        for r in range(self.rows):
+            for c in range(self.cols):
+                slot = self.slots[r][c]
+                if slot and slot["item"] == item_name:
+                    slot["count"] += 1
+                    print(f"{item_name} 수량 증가  {slot['count']}")
+                    return
+
+        # 빈 슬롯 -> 새로 추가
+        for r in range(self.rows):
+            for c in range(self.cols):
+                if self.slots[r][c] is None:
+                    self.slots[r][c] = {"item": item_name, "count": 1}
+                    print(f"{item_name} 인벤토리에 추가됨 ({r}, {c})")
+                    return
+
+        print("인벤토리가 가득 찼습니다!")
