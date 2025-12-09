@@ -105,6 +105,11 @@ def handle_events():
                 inventory.click(mx, my)
                 continue
 
+            if option_menu.is_open and e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
+                mx, my = e.x, get_canvas_height() - e.y
+                option_menu.click(mx, my)
+                continue
+
             if snap_x is not None and snap_y is not None:
                 char_tx = int(character.x // tile.tile)
                 char_ty = int((tile.MAP_H * tile.tile - character.y) // tile.tile)

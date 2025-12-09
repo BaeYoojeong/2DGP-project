@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="재화시스템을 위한 player_data.py를 만들어 클래스 생성, play_mode에서 ui로 골드 개수 작성">
-      <change afterPath="$PROJECT_DIR$/option.py" afterDir="false" />
+    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="옵션을 담당하는 option.py를 만들어 o를 누르면 옵션 이미지를 띄우게함.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/option.py" beforeDir="false" afterPath="$PROJECT_DIR$/option.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -289,11 +289,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765310344885</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="옵션을 담당하는 option.py를 만들어 o를 누르면 옵션 이미지를 띄우게함.">
+      <option name="closed" value="true" />
+      <created>1765311974271</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1765311974272</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="타일 몇개 띄우는 코드 작성함" />
     <MESSAGE value="타일 크기가 너무 작은것같아서 2배로 늘림,윈도우창 좌측상단부터 완전히 붙이게 함" />
     <MESSAGE value="전체를 채움" />
     <MESSAGE value="부시랑 나무까지 추가... 근데 나무가 좀 이상함" />
@@ -318,6 +325,7 @@
     <MESSAGE value="inventory 이미지에 맞춰서 슬롯 제작. 클릭해 선택가능하게 함" />
     <MESSAGE value="수확한 작물을 인벤토리에 넣기 구현함" />
     <MESSAGE value="재화시스템을 위한 player_data.py를 만들어 클래스 생성, play_mode에서 ui로 골드 개수 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="재화시스템을 위한 player_data.py를 만들어 클래스 생성, play_mode에서 ui로 골드 개수 작성" />
+    <MESSAGE value="옵션을 담당하는 option.py를 만들어 o를 누르면 옵션 이미지를 띄우게함." />
+    <option name="LAST_COMMIT_MESSAGE" value="옵션을 담당하는 option.py를 만들어 o를 누르면 옵션 이미지를 띄우게함." />
   </component>
 </project>
