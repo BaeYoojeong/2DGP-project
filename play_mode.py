@@ -92,6 +92,12 @@ def handle_events():
 
         # 마우스 클릭 → 타일 변경 처리
         if e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
+            # 인벤토리
+            if inventory.is_open and e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
+                mx, my = e.x, get_canvas_height() - e.y
+                inventory.click(mx, my)
+                continue
+
             if snap_x is not None and snap_y is not None:
                 char_tx = int(character.x // tile.tile)
                 char_ty = int((tile.MAP_H * tile.tile - character.y) // tile.tile)
