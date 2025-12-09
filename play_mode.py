@@ -7,10 +7,11 @@ import bush
 from character import Arang
 from inventory import Inventory
 from player_data import player_data
+from option import OptionMenu
 
 character = None
 inventory = None
-
+option_menu = None
 
 snap_x = None
 snap_y = None
@@ -18,7 +19,8 @@ snap_y = None
 # tile_mode (1->괭이질, 2->씨앗심기)
 tile_mode = 1
 def init():
-    global character, inventory
+    global character, inventory, option_menu
+    option_menu = OptionMenu()
     inventory = Inventory()
     player_data.inventory = inventory
 
@@ -76,6 +78,9 @@ def handle_events():
             elif e.key == SDLK_i:
                 inventory.toggle()
                 continue
+            elif e.key == SDLK_o:
+                option_menu.toggle()
+                continue
 
         # 마우스 입력 처리==============
         # 마우스 이동 → 스냅 좌표 계산
@@ -123,6 +128,9 @@ def handle_events():
 
 def update():
     global inventory
+    # 옵션메뉴 열려있으면 게임 업데이트 중단
+    if option_menu.is_open:
+        return
 
     # 인벤토리 열려있으면 게임 업데이트 중단
     if inventory.is_open:
@@ -164,6 +172,9 @@ def draw():
 
     if inventory.is_open:
         inventory.draw()
+    if option_menu.is_open:
+        option_menu.draw()
+
     update_canvas()
 
 def pause():
