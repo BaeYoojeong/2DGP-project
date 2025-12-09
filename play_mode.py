@@ -112,6 +112,9 @@ def update():
         frame_time = now - static_prev
         update._prev = now
 
+    # 타일 씨앗 성장 업데이트
+    tile.update_seed_growth(frame_time)
+
     game_world.handle_collisions()
     character.update(frame_time)
 
