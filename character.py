@@ -26,25 +26,25 @@ class Arang:
         self.last_updown = 0
     def handle_event(self, event):
         if event.type == SDL_KEYDOWN:
-            if event.key == SDLK_RIGHT:
+            if event.key == SDLK_d:
                 self.dir += 1
-            elif event.key == SDLK_LEFT:
+            elif event.key == SDLK_a:
                 self.dir -= 1
-            elif event.key == SDLK_UP:
+            elif event.key == SDLK_w:
                 self.updown += 1
-            elif event.key == SDLK_DOWN:
+            elif event.key == SDLK_s:
                 self.updown -= 1
             elif event.key == SDLK_m:
                 self.x=400
                 self.y=300
         elif event.type == SDL_KEYUP:
-            if event.key == SDLK_RIGHT:
+            if event.key == SDLK_d:
                 self.dir -= 1
-            elif event.key == SDLK_LEFT:
+            elif event.key == SDLK_a:
                 self.dir += 1
-            elif event.key == SDLK_UP:
+            elif event.key == SDLK_w:
                 self.updown -= 1
-            elif event.key == SDLK_DOWN:
+            elif event.key == SDLK_s:
                 self.updown += 1
 
     def update(self, frame_time):
