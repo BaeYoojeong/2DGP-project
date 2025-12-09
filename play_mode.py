@@ -6,6 +6,7 @@ import tree
 import bush
 from character import Arang
 from inventory import Inventory
+from player_data import player_data
 
 character = None
 inventory = None
@@ -19,6 +20,7 @@ tile_mode = 1
 def init():
     global character, inventory
     inventory = Inventory()
+    player_data.inventory = inventory
 
     mouse_x, mouse_y =0,0
     tile.load_tile_images()
@@ -149,6 +151,8 @@ def draw():
     character.draw()
     tree.draw_tree_map()
 
+    draw_gold_ui()
+
     if snap_x is not None and snap_y is not None:
         left = snap_x * tile.tile
         right = left + tile.tile
@@ -169,3 +173,6 @@ def pause():
 def resume():
     pass
 
+def draw_gold_ui():
+    font = load_font('Hakgyoansim_BoardmarkerR.ttf', 20)
+    font.draw(30, get_canvas_height() - 40, f"Gold: {player_data.gold}", (255,0,0))
