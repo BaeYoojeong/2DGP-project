@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈">
+    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="다 자란 식물을 4번- 손 키를 눌러서 수확하는 기능을 넣음">
       <change beforePath="$PROJECT_DIR$/play_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_mode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/tile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765304308298</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="다 자란 식물을 4번- 손 키를 눌러서 수확하는 기능을 넣음">
+      <option name="closed" value="true" />
+      <created>1765305496044</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1765305496044</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -264,6 +271,7 @@
     <MESSAGE value="tile모드를 만들어 괭이질, 씨앗 선택을 나눠서 처리함" />
     <MESSAGE value="water_tile 모드를 추가해서 tile에도 물주는 함수(2차원 리스트가 1-&gt;밭갈림, 3-&gt;물이뿌려져있음)를 만들어 물주는 기능까지 추가함" />
     <MESSAGE value="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈" />
-    <option name="LAST_COMMIT_MESSAGE" value="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈" />
+    <MESSAGE value="다 자란 식물을 4번- 손 키를 눌러서 수확하는 기능을 넣음" />
+    <option name="LAST_COMMIT_MESSAGE" value="다 자란 식물을 4번- 손 키를 눌러서 수확하는 기능을 넣음" />
   </component>
 </project>

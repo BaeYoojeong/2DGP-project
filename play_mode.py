@@ -6,6 +6,8 @@ import tree
 import bush
 from character import Arang
 
+inventory = False
+inventory_image = None
 
 character = None
 
@@ -15,7 +17,7 @@ snap_y = None
 # tile_mode (1->괭이질, 2->씨앗심기)
 tile_mode = 1
 def init():
-    global character
+    global character, inventory_image
     mouse_x, mouse_y =0,0
     tile.load_tile_images()
     tree.load_tree_images()
@@ -23,6 +25,8 @@ def init():
     bush.create_bushes()
 
     character = Arang()
+
+    inventory_image = load_image('inventory.png')
 
     for b in bush.bush_list:
         game_world.add_collision_pair('arang:bush', character, b)
@@ -33,7 +37,7 @@ def finish():
 
 
 def handle_events():
-    global snap_x, snap_y, tile_mode
+    global snap_x, snap_y, tile_mode,inventory
     events = get_events()
 
     for e in events:
@@ -67,7 +71,10 @@ def handle_events():
                 tile_mode = 4
                 print("4 - 손(수확) 선택")
                 continue
-
+        elif e.key == SDLK_i:
+            inventory = not inventory
+            print("인벤토리:", "열림" if inventory else "닫힘")
+            continue
         # 마우스 입력 처리==============
         # 마우스 이동 → 스냅 좌표 계산
         if e.type == SDL_MOUSEMOTION:
@@ -139,7 +146,8 @@ def draw():
 
         draw_rectangle(left-5, bottom-15, right-5, top-15)
 
-
+    if inventory:
+        draw_inventory()
 
     update_canvas()
 
@@ -149,3 +157,10 @@ def pause():
 
 def resume():
     pass
+def draw_inventory():
+    screen_w, screen_h = get_canvas_width(), get_canvas_height()
+
+    x = screen_w // 2
+    y = screen_h // 2
+
+    inventory_image.draw(x, y, 400, 400)
