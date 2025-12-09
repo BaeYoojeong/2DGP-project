@@ -145,3 +145,13 @@ def update_seed_growth(dt):
                 seed_map[y][x] += 1        # 다음단계
                 seed_timer[y][x] = 0       # 타이머 초기화
 
+def harvest(tx, ty):
+
+    if seed_map[ty][tx] == 4:
+        print("작물 수확!")
+        seed_map[ty][tx] = 0       # 작물 제거
+        seed_timer[ty][tx] = 0     # 타이머 초기화
+        water_map[ty][tx] = 0      # 물 상태 초기화
+        tile_map[ty][tx] = 0     # 땅으로 복구
+        return True
+    return False

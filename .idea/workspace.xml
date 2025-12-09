@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈">
+      <change beforePath="$PROJECT_DIR$/play_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_mode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/tile.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;BaeYoojeong&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BaeYoojeong/2DGP-project.git&quot;,
+    &quot;accountId&quot;: &quot;a4d6d3d4-5ea7-432b-bd6a-5f56f413ba46&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="33rqIRyKNuMj4TkTE2W055qUN30" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.character.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fight_mode.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.map.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mouse.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/2DGP/2DGP-project&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\2DGP\2DGP-project" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ce6832f46686-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.178" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="" />
+      <created>1760085463829</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760085463829</updated>
+    </task>
+    <task id="LOCAL-00001" summary="농사맵 작성할 파일 추가">
+      <option name="closed" value="true" />
+      <created>1760249262931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760249262931</updated>
+    </task>
+    <task id="LOCAL-00002" summary="타일 몇개 띄우는 코드 작성함">
+      <option name="closed" value="true" />
+      <created>1760253377223</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760253377224</updated>
+    </task>
+    <task id="LOCAL-00003" summary="타일 크기가 너무 작은것같아서 2배로 늘림,윈도우창 좌측상단부터 완전히 붙이게 함">
+      <option name="closed" value="true" />
+      <created>1760254195856</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760254195857</updated>
+    </task>
+    <task id="LOCAL-00004" summary="전체를 채움">
+      <option name="closed" value="true" />
+      <created>1760254810817</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760254810817</updated>
+    </task>
+    <task id="LOCAL-00005" summary="부시랑 나무까지 추가... 근데 나무가 좀 이상함">
+      <option name="closed" value="true" />
+      <created>1760257038679</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760257038680</updated>
+    </task>
+    <task id="LOCAL-00006" summary="교수님께서 수업때 캐릭터 먼저 만들라하셔서 character.py추가함">
+      <option name="closed" value="true" />
+      <created>1760507680826</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760507680826</updated>
+    </task>
+    <task id="LOCAL-00007" summary="tile 파일분할, main 추가">
+      <option name="closed" value="true" />
+      <created>1761637520480</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761637520486</updated>
+    </task>
+    <task id="LOCAL-00008" summary="tree, bush 파일 분할, main에서 출력하게함">
+      <option name="closed" value="true" />
+      <created>1761639418197</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761639418197</updated>
+    </task>
+    <task id="LOCAL-00009" summary="캐릭터 움직임 대충 구현">
+      <option name="closed" value="true" />
+      <created>1762867660571</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1762867660573</updated>
+    </task>
+    <task id="LOCAL-00010" summary="캐릭터 class를 만들어 main에 적용">
+      <option name="closed" value="true" />
+      <created>1762877761712</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1762877761713</updated>
+    </task>
+    <task id="LOCAL-00011" summary="전 코드 키보드 입력에서 딜레이가 많이 걸려서 시간 기반 코드로 수정함">
+      <option name="closed" value="true" />
+      <created>1762880428758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762880428760</updated>
+    </task>
+    <task id="LOCAL-00012" summary="game_world를 만들어 충돌계산하는 함수생성, 그 함수들로 캐릭터:부쉬 -&gt; 못지나가게함 충돌처리">
+      <option name="closed" value="true" />
+      <created>1762883033875</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1762883033876</updated>
+    </task>
+    <task id="LOCAL-00013" summary="h를 눌러 히트박스 표시를 껐다 킬수있게함">
+      <option name="closed" value="true" />
+      <created>1762884403491</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1762884403492</updated>
+    </task>
+    <task id="LOCAL-00014" summary="game frame work를 추가하고 main에 있던 작동 코드들을 play_mode로 이동, main에는 최소한의 코드만 남김">
+      <option name="closed" value="true" />
+      <created>1762910716076</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1762910716076</updated>
+    </task>
+    <task id="LOCAL-00015" summary="tile_mode 파일을 추가하고 tile 화면을 띄움">
+      <option name="closed" value="true" />
+      <created>1762911956143</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1762911956143</updated>
+    </task>
+    <task id="LOCAL-00016" summary="왼쪽 클릭시 2번째 타일로 변경하기 위해 tile change() 추가, 마우스 커서와 타일과 스냅되게함">
+      <option name="closed" value="true" />
+      <created>1763606183636</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1763606183637</updated>
+    </task>
+    <task id="LOCAL-00017" summary="캐릭터 주변 1칸 이내 타일만 변경 가능하게 만듦">
+      <option name="closed" value="true" />
+      <created>1763607223144</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1763607223144</updated>
+    </task>
+    <task id="LOCAL-00018" summary="tile모드를 만들어 괭이질, 씨앗 선택을 나눠서 처리함">
+      <option name="closed" value="true" />
+      <created>1763610855380</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1763610855381</updated>
+    </task>
+    <task id="LOCAL-00019" summary="water_tile 모드를 추가해서 tile에도 물주는 함수(2차원 리스트가 1-&gt;밭갈림, 3-&gt;물이뿌려져있음)를 만들어 물주는 기능까지 추가함">
+      <option name="closed" value="true" />
+      <created>1763611711003</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1763611711003</updated>
+    </task>
+    <task id="LOCAL-00020" summary="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈">
+      <option name="closed" value="true" />
+      <created>1765304308297</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765304308298</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="농사맵 작성할 파일 추가" />
+    <MESSAGE value="타일 몇개 띄우는 코드 작성함" />
+    <MESSAGE value="타일 크기가 너무 작은것같아서 2배로 늘림,윈도우창 좌측상단부터 완전히 붙이게 함" />
+    <MESSAGE value="전체를 채움" />
+    <MESSAGE value="부시랑 나무까지 추가... 근데 나무가 좀 이상함" />
+    <MESSAGE value="교수님께서 수업때 캐릭터 먼저 만들라하셔서 character.py추가함" />
+    <MESSAGE value="tile 파일분할, main 추가" />
+    <MESSAGE value="tree, bush 파일 분할, main에서 출력하게함" />
+    <MESSAGE value="캐릭터 움직임 대충 구현" />
+    <MESSAGE value="캐릭터 class를 만들어 main에 적용" />
+    <MESSAGE value="전 코드 키보드 입력에서 딜레이가 많이 걸려서 시간 기반 코드로 수정함" />
+    <MESSAGE value="game_world를 만들어 충돌계산하는 함수생성, 그 함수들로 캐릭터:부쉬 -&gt; 못지나가게함 충돌처리" />
+    <MESSAGE value="h를 눌러 히트박스 표시를 껐다 킬수있게함" />
+    <MESSAGE value="game frame work를 추가하고 main에 있던 작동 코드들을 play_mode로 이동, main에는 최소한의 코드만 남김" />
+    <MESSAGE value="tile_mode 파일을 추가하고 tile 화면을 띄움" />
+    <MESSAGE value="왼쪽 클릭시 2번째 타일로 변경하기 위해 tile change() 추가, 마우스 커서와 타일과 스냅되게함" />
+    <MESSAGE value="캐릭터 주변 1칸 이내 타일만 변경 가능하게 만듦" />
+    <MESSAGE value="tile모드를 만들어 괭이질, 씨앗 선택을 나눠서 처리함" />
+    <MESSAGE value="water_tile 모드를 추가해서 tile에도 물주는 함수(2차원 리스트가 1-&gt;밭갈림, 3-&gt;물이뿌려져있음)를 만들어 물주는 기능까지 추가함" />
+    <MESSAGE value="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈" />
+    <option name="LAST_COMMIT_MESSAGE" value="새싹, 중간새싹, 작물 이미지 추가. 타이머를 추가해 5, 7, 10초마다 타일의 이미지를 바꿈" />
+  </component>
+</project>

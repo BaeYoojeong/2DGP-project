@@ -63,7 +63,10 @@ def handle_events():
                 tile_mode = 3
                 print("3 - 물뿌리개 선택")
                 continue
-
+            elif e.key == SDLK_4:
+                tile_mode = 4
+                print("4 - 손(수확) 선택")
+                continue
 
         # 마우스 입력 처리==============
         # 마우스 이동 → 스냅 좌표 계산
@@ -83,7 +86,6 @@ def handle_events():
         # 마우스 클릭 → 타일 변경 처리
         if e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
             if snap_x is not None and snap_y is not None:
-
                 char_tx = int(character.x // tile.tile)
                 char_ty = int((tile.MAP_H * tile.tile - character.y) // tile.tile)
 
@@ -95,6 +97,8 @@ def handle_events():
                         tile.plant_seed(snap_x, snap_y)
                     elif tile_mode == 3:
                         tile.water_tile(snap_x, snap_y)
+                    elif tile_mode == 4:
+                        tile.harvest(snap_x, snap_y)
                 else:
                     print("캐릭터 주변 1칸만 변경 가능")
             continue
