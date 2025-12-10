@@ -73,7 +73,7 @@ class Inventory:
                     draw_rectangle(sx - 3, sy - 3,
                                    sx + self.slot_size + 3,
                                    sy + self.slot_size + 3)
-
+    # 인벤토리 클릭
     def click(self, mx, my):
         if not self.is_open:
             return None
@@ -101,6 +101,7 @@ class Inventory:
         # 인벤토리가 열려있을때 뒤에 게임화면 멈춤
         return self.is_open
 
+    # 인벤토리에 아이템 넣기
     def add_item(self, item_name):
         # 동일 아이템 -> count 증가
         for r in range(self.rows):
@@ -120,7 +121,7 @@ class Inventory:
                     return
 
         print("인벤토리가 가득 찼습니다!")
-
+    # 물건판매
     def sell_item(self, mx, my):
         if not self.is_open:
             return
@@ -158,3 +159,22 @@ class Inventory:
                         self.slots[r][c] = None
 
                     return
+    # 씨앗 있음?
+    def has_item(self, item_name):
+        for r in range(self.rows):
+            for c in range(self.cols):
+                slot = self.slots[r][c]
+                if slot and slot["item"] == item_name and slot["count"] > 0:
+                    return True
+        return False
+    # 씨앗 소비
+    def consume_item(self, item_name):
+        for r in range(self.rows):
+            for c in range(self.cols):
+                slot = self.slots[r][c]
+                if slot and slot["item"] == item_name:
+                    slot["count"] -= 1
+                    if slot["count"] <= 0:
+                        self.slots[r][c] = None
+                    return True
+        return False

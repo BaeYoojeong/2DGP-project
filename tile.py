@@ -101,8 +101,10 @@ def plant_seed(tx, ty):
     if tile_map[ty][tx] == 2:
         seed_map[ty][tx] = 1    # 씨앗
         seed_timer[ty][tx] = 0  # 시간 0부터 시작
+        return True
     else:
         print("씨앗은 갈아놓은 밭에만 심을 수 있습니다.")
+        return False
 
 # 물 뿌리기 함수
 def water_tile(tx, ty):

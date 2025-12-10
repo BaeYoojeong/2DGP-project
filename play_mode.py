@@ -60,6 +60,8 @@ def handle_events():
         if e.type == SDL_KEYDOWN and e.key == SDLK_ESCAPE:
             import game_framework
             game_framework.quit()
+        if e.type == SDL_KEYDOWN and e.key == SDLK_c:
+            player_data.gold += 100
 
         # 히트박스
         if e.type == SDL_KEYDOWN and e.key == SDLK_h:
@@ -133,7 +135,17 @@ def handle_events():
                     if tile_mode == 1:
                         tile.change_tile(snap_x, snap_y)
                     elif tile_mode == 2:
-                        tile.plant_seed(snap_x, snap_y)
+                        seed_item = "seed_cabbage.png"
+
+                        # 씨앗 보유 체크
+                        if not inventory.has_item(seed_item):
+                            print("씨앗이 없습니다!")
+                            continue
+
+                        # 씨앗을 타일에 심기
+                        if tile.plant_seed(snap_x, snap_y):
+                            inventory.consume_item(seed_item)
+                            print("씨앗 1개 사용됨")
                     elif tile_mode == 3:
                         tile.water_tile(snap_x, snap_y)
                     elif tile_mode == 4:
