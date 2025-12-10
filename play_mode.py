@@ -26,8 +26,12 @@ def init():
     global character, inventory, option_menu
     option_menu = OptionMenu()
     inventory = Inventory()
-    player_data.inventory = inventory
 
+    if player_data.inventory is None:
+        inventory = Inventory()
+        player_data.inventory = inventory
+    else:
+        inventory = player_data.inventory
     mouse_x, mouse_y =0,0
     tile.load_tile_images()
     tree.load_tree_images()
@@ -87,13 +91,13 @@ def handle_events():
                 continue
 
         # 마우스 입력 처리==============
-        # 인벤토리 우클릭 → 판매
+        # 인벤토리 우클릭 => 판매
         if inventory.is_open and e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_RIGHT:
             mx, my = e.x, get_canvas_height() - e.y
             inventory.sell_item(mx, my)
             continue
 
-        # 마우스 이동 → 스냅 좌표 계산
+        # 마우스 이동 => 스냅 좌표 계산
         if e.type == SDL_MOUSEMOTION:
             mx, my = e.x, get_canvas_height() - e.y
             ty = int((tile.MAP_H * tile.tile - my) // tile.tile)
@@ -107,7 +111,7 @@ def handle_events():
                 snap_y = None
             continue
 
-        # 마우스 클릭 → 타일 변경 처리
+        # 마우스 클릭 =>  타일 변경 처리
         if e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:
             # 인벤토리
             if inventory.is_open and e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_LEFT:

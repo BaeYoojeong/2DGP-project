@@ -17,6 +17,7 @@ class Arang:
     def __init__(self):
         self.image = load_image('arang.png')
         self.x, self.y = 400, 120
+        self.xx, self.yy = 400, 120
         self.character_x, self.character_y = 50, 100
 
         self.frame = 0
@@ -47,6 +48,7 @@ class Arang:
             elif event.key == SDLK_s:
                 self.updown += 1
 
+
     def update(self, frame_time):
         # 이동 거리 계산
         distance = RUN_SPEED_PPS * frame_time
@@ -55,6 +57,8 @@ class Arang:
                       FRAMES_PER_ACTION * ACTION_PER_TIME * frame_time) % FRAMES_PER_ACTION
 
         if self.dir != 0 or self.updown != 0:
+            self.xx = self.x
+            self.yy = self.y
             self.x += self.dir * distance
             self.y += self.updown * distance
             self.last_dir = self.dir
@@ -91,11 +95,5 @@ class Arang:
         if group == 'arang:bush':
             # 충돌 처리 - 부딪히면 반대쪽으로 이동되게함
             print("Arang : Bush")
-            if self.dir > 0:
-                self.x -= 10
-            elif self.dir < 0:
-                self.x += 10
-            if self.updown > 0:
-                self.y -= 10
-            elif self.updown < 0:
-                self.y += 10
+            self.x=self.xx
+            self.y=self.yy

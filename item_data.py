@@ -1,7 +1,7 @@
 # item_data.py
 
 ITEM_PRICES = {
-    "farm_cabbage03.png": 30,
+    "farm_cabbage03.png": 10,
 }
 
 def get_price(item_name):
