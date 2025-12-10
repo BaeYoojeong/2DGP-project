@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="상점 이미지">
+    <list default="true" id="3be716d2-3569-4c29-9963-8417083a762c" name="Changes" comment="상점 이미지로 넘어가는것까지구현">
+      <change afterPath="$PROJECT_DIR$/item_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/option.py" beforeDir="false" afterPath="$PROJECT_DIR$/option.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_mode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,11 +314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765316450219</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="상점 이미지로 넘어가는것까지구현">
+      <option name="closed" value="true" />
+      <created>1765333459318</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1765333459319</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="부시랑 나무까지 추가... 근데 나무가 좀 이상함" />
     <MESSAGE value="교수님께서 수업때 캐릭터 먼저 만들라하셔서 character.py추가함" />
     <MESSAGE value="tile 파일분할, main 추가" />
     <MESSAGE value="tree, bush 파일 분할, main에서 출력하게함" />
@@ -343,6 +350,7 @@
     <MESSAGE value="옵션을 담당하는 option.py를 만들어 o를 누르면 옵션 이미지를 띄우게함." />
     <MESSAGE value="옵션 메뉴들을 인벤토리 슬롯 만들때처럼 선택할수있게 만듦" />
     <MESSAGE value="상점 이미지" />
-    <option name="LAST_COMMIT_MESSAGE" value="상점 이미지" />
+    <MESSAGE value="상점 이미지로 넘어가는것까지구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="상점 이미지로 넘어가는것까지구현" />
   </component>
 </project>

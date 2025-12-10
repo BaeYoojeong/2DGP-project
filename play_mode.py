@@ -87,6 +87,12 @@ def handle_events():
                 continue
 
         # 마우스 입력 처리==============
+        # 인벤토리 우클릭 → 판매
+        if inventory.is_open and e.type == SDL_MOUSEBUTTONDOWN and e.button == SDL_BUTTON_RIGHT:
+            mx, my = e.x, get_canvas_height() - e.y
+            inventory.sell_item(mx, my)
+            continue
+
         # 마우스 이동 → 스냅 좌표 계산
         if e.type == SDL_MOUSEMOTION:
             mx, my = e.x, get_canvas_height() - e.y

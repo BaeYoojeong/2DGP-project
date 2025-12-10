@@ -1,5 +1,8 @@
 from pico2d import *
 
+from item_data import get_price
+from player_data import player_data
+
 class Inventory:
     def __init__(self):
         self.is_open = False
@@ -117,3 +120,41 @@ class Inventory:
                     return
 
         print("인벤토리가 가득 찼습니다!")
+
+    def sell_item(self, mx, my):
+        if not self.is_open:
+            return
+
+        w, h = get_canvas_width(), get_canvas_height()
+        cx, cy = w // 2, h // 2
+
+        start_x = cx - (self.width // 2) + 40
+        start_y = cy + (self.height // 2) - 100
+
+        for r in range(self.rows):
+            for c in range(self.cols):
+
+                sx = start_x + c * (self.slot_size + self.margin)
+                sy = start_y - r * (self.slot_size + self.margin)
+
+                if sx <= mx <= sx + self.slot_size and sy <= my <= sy + self.slot_size:
+
+                    slot = self.slots[r][c]
+                    if slot is None:
+                        return
+
+                    item_name = slot["item"]
+                    price = get_price(item_name)
+
+                    if price is None:
+                        print(f"'{item_name}' 은(는) 등록되지 않아 판매할 수 없습니다.")
+                        return
+
+                    player_data.gold += price
+                    print(f"{item_name} 판매! +{price} 골드")
+
+                    slot["count"] -= 1
+                    if slot["count"] <= 0:
+                        self.slots[r][c] = None
+
+                    return
