@@ -4,10 +4,14 @@ import time
 import tile
 import tree
 import bush
+import shop_mode
+import game_framework
+
 from character import Arang
 from inventory import Inventory
 from player_data import player_data
 from option import OptionMenu
+
 
 character = None
 inventory = None

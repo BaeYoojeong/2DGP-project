@@ -52,7 +52,7 @@ class OptionMenu:
         cx, cy = w // 2, h // 2
 
         start_x = cx - (self.slot_width * 1.5) - self.margin
-        start_y = cy - 80
+        start_y = cy - 300
 
         for c in range(self.cols):
 
@@ -62,7 +62,10 @@ class OptionMenu:
             if sx <= mx <= sx + self.slot_width and sy <= my <= sy + self.slot_height:
                 self.selected_slot = (0, c)
                 if c == 0:
-                    print("저잣거리")
+                    print("저잣거리로 이동합니다.")
+                    import game_framework
+                    import shop_mode
+                    game_framework.push_mode(shop_mode)
                 elif c == 1:
                     print("요괴퇴치")
                 elif c == 2:
