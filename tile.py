@@ -27,20 +27,31 @@ MAP_W = len(tile_map[0])
 
 tile_images = {}
 
-seed_image = None
-sprout_image = None
-mid_image = None
-crop_image = None
+seed_cabbage = None
+sprout_cabbage = None
+mid_cabbage = None
+crop_cabbage = None
+
+
+seed_carrot = None
+sprout_carrot = None
+mid_carrot = None
+crop_carrot = None
+
 
 # 성장 타이머 (경과 시간 저장)
 seed_timer = [[0 for _ in range(MAP_W)] for _ in range(MAP_H)]
-# 씨앗 맵
+# 씨앗 종류 맵 (0 없음 / cabbage / carrot)
 seed_map = [[0 for _ in range(MAP_W)] for _ in range(MAP_H)]
+seed_type_map = [[0 for _ in range(MAP_W)] for _ in range(MAP_H)]
 # 물 준 상태 맵 (0: 안줌, 1: 물줌)
 water_map = [[0 for _ in range(MAP_W)] for _ in range(MAP_H)]
 
 def load_tile_images():
-    global tile_images, seed_image, sprout_image, mid_image, crop_image
+    global tile_images
+    global seed_cabbage, sprout_cabbage, mid_cabbage, crop_cabbage
+    global seed_carrot, sprout_carrot, mid_carrot, crop_carrot
+
 
     tile_images = {
         0: load_image('a_grass.png'),
@@ -49,10 +60,17 @@ def load_tile_images():
         3: load_image('water_ground.png')   # 물 뿌린 밭
     }
 
-    seed_image = load_image('seed.png')  # 1단계
-    sprout_image = load_image('farm_cabbage01.png')  # 2단계
-    mid_image = load_image('farm_cabbage02.png')  # 3단계 중간풀
-    crop_image = load_image('farm_cabbage03.png')  # 4단계 완성작물
+    seed_cabbage = load_image('seed_cabbage_farming.png')  # 1단계
+    sprout_cabbage = load_image('farm_cabbage01.png')  # 2단계
+    mid_cabbage = load_image('farm_cabbage02.png')  # 3단계 중간풀
+    crop_cabbage = load_image('farm_cabbage03.png')  # 4단계 완성작물
+
+    seed_carrot = load_image('seed_carrot_farming.png')  # 1단계
+    sprout_carrot = load_image('farm_carrot01.png')  # 2단계
+    mid_carrot = load_image('farm_carrot02.png')  # 3단계 중간풀
+    crop_carrot = load_image('farm_carrot03.png')  # 4단계 완성작물
+
+
 
 
 # 타일 맵 그리기
@@ -68,43 +86,46 @@ def draw_tile_map():
                                            ((MAP_H - y) * tile) - 40,
                                            tile, tile)
 
-            # 씨앗이 있는 경우 씨앗 이미지 그리기
-            if seed_map[y][x] == 1:
-                seed_image.draw((x * tile) + 20,
-                                ((MAP_H - y) * tile) - 40,
-                                20, 20)  # 적당한 크기
-
-            # 씨앗 단계: 0 없음 / 1 씨앗 / 2 새싹 / 3 중간풀 / 4 작물
+            # 씨앗 단계별 이미지 그리기
             stage = seed_map[y][x]
 
-            if stage == 1:
-                seed_image.draw(px, py, 20, 20)
+            if stage > 0:
+                seed_type = seed_type_map[y][x]
 
-            elif stage == 2:
-                sprout_image.draw(px, py+10, 60,60)
-
-            elif stage == 3:
-                mid_image.draw(px, py+15,80, 80)
-
-            elif stage == 4:
-                crop_image.draw(px, py+15, 80, 80)
+                if seed_type == "cabbage":
+                    images = (seed_cabbage, sprout_cabbage, mid_cabbage, crop_cabbage)
+                    sizes = ((20, 20), (40, 40), (55, 55), (70, 70))
+                elif seed_type == "carrot":
+                    images = (seed_carrot, sprout_carrot, mid_carrot, crop_carrot)
+                    sizes = ((40, 40), (40, 40), (55, 55), (70, 70))
+                else:
+                    continue
+                img = images[stage - 1]
+                w, h = sizes[stage - 1]
+                img.draw(px, py+10, w, h)
 
 
 # 타일 변경(땅 → 밭 만들기)
 def change_tile(tx, ty):
     if 0 <= tx < MAP_W and 0 <= ty < MAP_H:
-        tile_map[ty][tx] = 2
-
+        if tile_map[ty][tx] == 3:
+            return
+        if tile_map[ty][tx] == 2:
+            return
+        if tile_map[ty][tx] in (0, 1):
+            tile_map[ty][tx] = 2
 
 # 씨앗 심기 함수
-def plant_seed(tx, ty):
-    if tile_map[ty][tx] == 2:
-        seed_map[ty][tx] = 1    # 씨앗
-        seed_timer[ty][tx] = 0  # 시간 0부터 시작
-        return True
-    else:
+def plant_seed(tx, ty, seed_type):
+    if tile_map[ty][tx] not in (2, 3):
         print("씨앗은 갈아놓은 밭에만 심을 수 있습니다.")
         return False
+
+    seed_map[ty][tx] = 1
+    seed_type_map[ty][tx] = seed_type
+    seed_timer[ty][tx] = 0
+    return True
+
 
 # 물 뿌리기 함수
 def water_tile(tx, ty):
@@ -150,10 +171,21 @@ def update_seed_growth(dt):
 def harvest(tx, ty):
 
     if seed_map[ty][tx] == 4:
+        if seed_map[ty][tx] != 4:
+            return False
+
+        seed_type = seed_type_map[ty][tx]
+
         print("작물 수확!")
 
-        play_mode.inventory.add_item("farm_cabbage03.png")
-
+        # 씨앗 종류에 따라 다른 작물 지급
+        if seed_type == "cabbage":
+            play_mode.inventory.add_item("farm_cabbage03.png")
+        elif seed_type == "carrot":
+            play_mode.inventory.add_item("farm_carrot03.png")
+        else:
+            print("ERROR: seed_type 없어서 작물이 추가되지 않음!")
+            return False
         seed_map[ty][tx] = 0       # 작물 제거
         seed_timer[ty][tx] = 0     # 타이머 초기화
         water_map[ty][tx] = 0      # 물 상태 초기화

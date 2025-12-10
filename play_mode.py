@@ -16,16 +16,18 @@ from option import OptionMenu
 character = None
 inventory = None
 option_menu = None
-
+select_image=None
 snap_x = None
 snap_y = None
 
 # tile_mode (1->괭이질, 2->씨앗심기)
 tile_mode = 1
 def init():
-    global character, inventory, option_menu
+    global character, inventory, option_menu, select_image
     option_menu = OptionMenu()
     inventory = Inventory()
+
+    select_image = load_image("select.png")
 
     if player_data.inventory is None:
         inventory = Inventory()
@@ -70,21 +72,30 @@ def handle_events():
         # 타일모드 변경
         if e.type == SDL_KEYDOWN:
             if e.key == SDLK_1:
-                tile_mode = 1
+                tile_mode = 1  # 괭이
                 print("1 - 괭이 선택")
                 continue
+
             elif e.key == SDLK_2:
-                tile_mode = 2
-                print("2 - 씨앗 선택")
+                tile_mode = 2  # 물뿌리개
+                print("2 - 물뿌리개 선택")
                 continue
+
             elif e.key == SDLK_3:
-                tile_mode = 3
-                print("3 - 물뿌리개 선택")
+                tile_mode = 3  # 낫(수확)
+                print("3 - 낫 선택")
                 continue
+
             elif e.key == SDLK_4:
-                tile_mode = 4
-                print("4 - 손(수확) 선택")
+                tile_mode = 4  # 양배추 씨앗
+                print("4 - 양배추 씨앗 선택")
                 continue
+
+            elif e.key == SDLK_5:
+                tile_mode = 5  # 당근 씨앗
+                print("5 - 당근 씨앗 선택")
+                continue
+
             elif e.key == SDLK_i:
                 inventory.toggle()
                 continue
@@ -134,22 +145,44 @@ def handle_events():
 
                     if tile_mode == 1:
                         tile.change_tile(snap_x, snap_y)
+
                     elif tile_mode == 2:
+                        tile.water_tile(snap_x, snap_y)
+
+                    elif tile_mode == 3:
+                        tile.harvest(snap_x, snap_y)
+
+
+                    elif tile_mode == 4:
+
                         seed_item = "seed_cabbage.png"
 
-                        # 씨앗 보유 체크
                         if not inventory.has_item(seed_item):
-                            print("씨앗이 없습니다!")
+                            print("양배추 씨앗이 없습니다!")
+
                             continue
 
-                        # 씨앗을 타일에 심기
-                        if tile.plant_seed(snap_x, snap_y):
+                        if tile.plant_seed(snap_x, snap_y, "cabbage"):
                             inventory.consume_item(seed_item)
-                            print("씨앗 1개 사용됨")
-                    elif tile_mode == 3:
-                        tile.water_tile(snap_x, snap_y)
-                    elif tile_mode == 4:
-                        tile.harvest(snap_x, snap_y)
+
+                            print("양배추 씨앗 1개 사용됨")
+
+
+                    elif tile_mode == 5:
+
+                        seed_item = "seed_carrot.png"
+
+                        if not inventory.has_item(seed_item):
+                            print("당근 씨앗이 없습니다!")
+
+                            continue
+
+                        if tile.plant_seed(snap_x, snap_y, "carrot"):
+                            inventory.consume_item(seed_item)
+
+                            print("당근 씨앗 1개 사용됨")
+
+
                 else:
                     print("캐릭터 주변 1칸만 변경 가능")
             continue
@@ -192,6 +225,7 @@ def draw():
 
     draw_gold_ui()
 
+    select_image.draw(50,400, 150, 350)
     if snap_x is not None and snap_y is not None:
         left = snap_x * tile.tile
         right = left + tile.tile

@@ -9,6 +9,7 @@ def init():
     global image
 
     image = load_image("title.png")
+    image =  load_image("HowTo.png")
 
 def update():
     pass
@@ -17,6 +18,7 @@ def draw():
     # 타이틀 이미지를 그려줌
     clear_canvas()
     image.draw(400, 300,800,600)
+
     update_canvas()
 
 def finish():
@@ -31,5 +33,7 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_z:
+
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             game_framework.change_mode(play_mode)

@@ -20,7 +20,19 @@ def init():
             "name": "양배추 씨앗",
             "item_file": "seed_cabbage.png",
             "price": 20,
-            "button": (750, 400, 820, 470)  # 엽전 버튼 좌표
+            "button": (330, 360, 400, 415)  # 엽전 버튼 좌표
+        },
+        {
+            "name": "당근 씨앗",
+            "item_file": "seed_carrot.png",
+            "price": 40,
+            "button": (330, 230, 400, 285)  # 엽전 버튼 좌표
+        },
+        {
+            "name": "???",
+            "item_file": "key.png",
+            "price": 10000,
+            "button": (330, 100, 400, 155)  # 엽전 버튼 좌표
         }
     ]
 
@@ -51,7 +63,6 @@ def draw():
         x1, y1, x2, y2 = item["button"]
         cx = (x1 + x2) // 2
         cy = (y1 + y2) // 2
-        draw_rectangle(x1, y1, x2, y2)
     update_canvas()
 
 
@@ -70,9 +81,14 @@ def check_purchase(mx, my):
             # 골드 차감
             player_data.gold -= price
 
-            print(f"{item['name']} 구매 완료! -{price}냥")
-
             # 인벤토리에 추가
             inv = player_data.inventory
+            if item["item_file"] == "seed_cabbage.png" or item["item_file"] == "seed_carrot.png":
+                print(f"{item['name']} 5개 구매 완료! -{price}냥")
+                for _ in range(4):
+                    inv.add_item(item["item_file"])
+            else:
+                print(f"{item['name']} 구매 완료! -{price}냥")
+                inv.add_item(item["item_file"])
             inv.add_item(item["item_file"])
             return
