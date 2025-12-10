@@ -9,7 +9,6 @@ def init():
     global image
 
     image = load_image("title.png")
-    image =  load_image("HowTo.png")
 
 def update():
     pass
@@ -33,7 +32,5 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_z:
-
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             game_framework.change_mode(play_mode)
